@@ -1,7 +1,7 @@
 [build]
   publish = "dist"
   command = "npm run build:pre"
-  environment = { NODE_VERSION = "24", NODE_ENV = "production" }
+  environment = { NODE_VERSION = "24", NODE_ENV = "production", NPM_FLAGS = "--include=dev" }
 
 [template.environment]
   ACKEE_MONGODB = "ACKEE_MONGODB"
