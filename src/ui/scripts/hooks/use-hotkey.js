@@ -4,6 +4,8 @@ const hotkeyManager = (() => {
   const handlers = new Set()
 
   const handleKeyDown = (event) => {
+    if (event.key == null) return
+
     const pressedKey = event.key.toLowerCase()
     const targetTag = event.target.tagName
 

@@ -1,4 +1,5 @@
 import { HeaderMap } from '@apollo/server'
+import mongoose from 'mongoose'
 
 import config from './utils/config.js'
 import connect from './utils/connect.js'
@@ -11,7 +12,22 @@ if (config.dbUrl == null) {
   throw new Error('MongoDB connection URI missing in environment')
 }
 
-connect(config.dbUrl)
+let connectionPromise
+
+const ensureConnected = async () => {
+  if (mongoose.connection.readyState === 0) {
+    connectionPromise = null
+  }
+
+  if (connectionPromise == null) {
+    connectionPromise = connect(config.dbUrl).catch((error) => {
+      connectionPromise = null
+      throw error
+    })
+  }
+
+  await connectionPromise
+}
 
 const apolloServer = createApolloServer()
 await apolloServer.start()
@@ -53,6 +69,8 @@ export const handler = async (request) => {
       headers: buildResponseHeaders(corsHeaders),
     })
   }
+
+  await ensureConnected()
 
   const url = new URL(request.url)
 
