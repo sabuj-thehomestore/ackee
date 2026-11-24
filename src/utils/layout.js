@@ -3,11 +3,11 @@ export default (body, favicon, styles, scripts, variables) => `
 	<html lang="en">
 		<head>
 
-			<title>Ackee</title>
+			<title>Shirube</title>
 
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<meta name="theme-color" content="#282d2d">
+			<meta name="theme-color" content="#0b0f19">
 
 			<!-- Favicon -->
 			<link rel="shortcut icon" href="${favicon}" type="image/x-icon">

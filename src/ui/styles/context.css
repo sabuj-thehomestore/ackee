@@ -10,10 +10,15 @@
   translate: 0 var(--context-starting-y);
   opacity: 0;
   z-index: 3;
-  backdrop-filter: var(--backdrop-filter);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   transition:
     opacity var(--motion-duration-ui) var(--motion-easing-standard),
     translate var(--motion-duration-ui) var(--motion-easing-standard);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: var(--radius);
   background: var(--context);
   padding: calc(var(--gutter) / 2) 0;

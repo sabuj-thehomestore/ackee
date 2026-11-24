@@ -28,7 +28,7 @@ const CurrentStatus = (props) => {
       Status,
       {},
       'No data',
-      h(Tooltip, {}, 'There is either no data available or collecting detailed data is disabled in ackee-tracker.'),
+      h(Tooltip, {}, 'There is either no data available or collecting detailed data is disabled.'),
     )
 
   return h(Status, {}, props.children)

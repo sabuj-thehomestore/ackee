@@ -18,7 +18,7 @@ import ErrorBoundary from './components/error-boundary.js'
 import Main from './components/main.js'
 
 if (globalThis.env.isDemoMode === true) {
-  console.warn('Ackee runs in demo mode')
+  console.warn('Shirube runs in demo mode')
 }
 
 const { statusLink, useLoading, useErrors } = createStatusLink()

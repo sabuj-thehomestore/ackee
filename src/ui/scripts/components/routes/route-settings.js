@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { Fragment, createElement as h } from 'react'
 
-import { homepage, version } from '../../../../../package.json'
 import useDomains from '../../api/hooks/domains/use-domains.js'
 import useEvents from '../../api/hooks/events/use-events.js'
 import usePermanentTokens from '../../api/hooks/permanent-tokens/use-permanent-tokens.js'
@@ -85,8 +84,6 @@ const RouteSettings = (props) => {
       {
         headline: 'Account',
       },
-      h(LinkItem, { type: 'p', disabled: true, text: version }, 'Version'),
-      h(Line),
       h(LinkItem, { type: 'button', onClick: onSignOut }, 'Sign Out'),
     ),
 
@@ -112,50 +109,6 @@ const RouteSettings = (props) => {
         headline: 'Permanent Tokens',
       },
       ...(permanentTokens.status.isInitializing === true ? [permanentTokensLoading] : permanentTokensItems),
-    ),
-
-    h(
-      CardSetting,
-      {
-        headline: 'Donate',
-      },
-      h(
-        LinkItem,
-        { type: 'a', href: 'https://github.com/sponsors/electerious', target: '_blank', rel: 'noopener' },
-        'Become a GitHub sponsor',
-      ),
-      h(Line),
-      h(
-        LinkItem,
-        { type: 'a', href: 'https://www.buymeacoffee.com/electerious', target: '_blank', rel: 'noopener' },
-        'Buy me a coffee',
-      ),
-      h(Line),
-      h(
-        LinkItem,
-        { type: 'a', href: 'https://paypal.me/electerious', target: '_blank', rel: 'noopener' },
-        'Donate via PayPal',
-      ),
-    ),
-
-    h(
-      CardSetting,
-      {
-        headline: 'Help',
-      },
-      h(
-        LinkItem,
-        { type: 'a', href: 'https://ackee.electerious.com', target: '_blank', rel: 'noopener' },
-        'Website and documentation',
-      ),
-      h(Line),
-      h(LinkItem, { type: 'a', href: homepage, target: '_blank', rel: 'noopener' }, 'Ackee on GitHub'),
-      h(Line),
-      h(
-        LinkItem,
-        { type: 'a', href: 'https://github.com/electerious/ackee-tracker', target: '_blank', rel: 'noopener' },
-        'Add Ackee to your sites',
-      ),
     ),
   )
 }

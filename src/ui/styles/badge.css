@@ -22,7 +22,10 @@
   transition:
     background-color var(--motion-duration-ui) var(--motion-easing-standard),
     color var(--motion-duration-ui) var(--motion-easing-standard);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 100px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 0 calc(var(--gutter) / 1.5);
   height: calc(var(--badge-height) + var(--badge-padding-vertical) * 2);
 

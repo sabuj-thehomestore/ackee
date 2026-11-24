@@ -1,9 +1,20 @@
 .card {
   border-radius: var(--radius);
-
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+  transition:
+    border-color var(--motion-duration-ui) var(--motion-easing-standard),
+    box-shadow var(--motion-duration-ui) var(--motion-easing-standard),
+    transform var(--motion-duration-ui) var(--motion-easing-standard);
   background: var(--card);
   width: 100%;
   overflow: hidden;
+
+  &:hover {
+    border-color: var(--card-border-hover);
+  }
 
   &--overlay {
     align-self: center;
@@ -31,13 +42,16 @@
 
   &__footer {
     display: flex;
-    border-top: 1px solid var(--black);
+    border-top: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
   }
 
   &__button {
     display: flex;
     justify-content: flex-end;
-    transition: background var(--motion-duration-ui) var(--motion-easing-standard);
+    transition:
+      background var(--motion-duration-ui) var(--motion-easing-standard),
+      color var(--motion-duration-ui) var(--motion-easing-standard);
     outline: none;
     padding: var(--gutter) calc(var(--gutter) * 1.5);
 
@@ -47,7 +61,7 @@
 
     &:not([disabled]):focus,
     &:not([disabled]):hover {
-      background: var(--dimmed);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     &:active {
@@ -56,13 +70,19 @@
     }
 
     &--primary {
+      background: linear-gradient(135deg, rgba(56, 239, 179, 0.14), rgba(56, 189, 248, 0.14));
       width: 100%;
+
+      &:not([disabled]):focus,
+      &:not([disabled]):hover {
+        background: linear-gradient(135deg, rgba(56, 239, 179, 0.24), rgba(56, 189, 248, 0.24));
+      }
     }
   }
 
   &__separator {
     flex-shrink: 0;
-    background: var(--black);
+    background: var(--border);
     width: 1px;
   }
 }

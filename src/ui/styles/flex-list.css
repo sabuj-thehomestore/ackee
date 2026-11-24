@@ -15,26 +15,12 @@
 
   &::before,
   &::after {
-    position: absolute;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    height: calc(var(--gutter) / 2);
-    pointer-events: none;
-    content: '';
-  }
-
-  &::before {
-    top: 0;
-    background: linear-gradient(var(--card), var(--card-transparent));
-  }
-
-  &::after {
-    bottom: 0;
-    background: linear-gradient(var(--card-transparent), var(--card));
+    display: none;
   }
 
   &__inner {
+    mask-image: linear-gradient(to bottom, transparent, black 12px, black calc(100% - 12px), transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 12px, black calc(100% - 12px), transparent);
     padding-top: var(--gutter);
     height: var(--card-content-height);
     overflow: auto;
@@ -105,8 +91,9 @@
     position: absolute;
     top: calc(var(--gutter) / 2);
     left: 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 100px;
-    background: var(--dimmed);
+    background: linear-gradient(90deg, rgba(56, 239, 179, 0.16), rgba(56, 189, 248, 0.06));
     width: var(--width);
     height: var(--row-height);
     pointer-events: none;

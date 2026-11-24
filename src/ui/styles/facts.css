@@ -4,10 +4,8 @@
   grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 
   grid-column: 1 / -1;
-  gap: 1px;
-  border-radius: var(--radius);
+  gap: var(--gutter);
   width: 100%;
-  overflow: hidden;
 
   @media (max-width: 900px) {
     --columns: 2;
@@ -23,9 +21,22 @@
     align-content: space-between;
     align-items: end;
     gap: var(--gutter);
+    backdrop-filter: var(--backdrop-filter);
+    -webkit-backdrop-filter: var(--backdrop-filter);
+    transition:
+      border-color var(--motion-duration-ui) var(--motion-easing-standard),
+      transform var(--motion-duration-ui) var(--motion-easing-standard);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
     background: var(--card);
     padding: calc(var(--gutter) * 1.6) calc(var(--gutter) * 1.5) calc(var(--gutter) * 1.5);
     width: 100%;
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: var(--card-border-hover);
+    }
   }
 
   &__top {
@@ -37,7 +48,7 @@
 
     .headline {
       @supports (background-clip: text) or (-webkit-background-clip: text) {
-        background-image: linear-gradient(150deg, var(--white), rgba(255, 255, 255, 0.5));
+        background-image: linear-gradient(135deg, var(--white) 20%, var(--primary) 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;

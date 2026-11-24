@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types'
 import { createElement as h } from 'react'
 
-import { homepage } from '../../../../../package.json'
-
 import Headline from '../headline.js'
 import Input from '../input.js'
 import Message from '../message.js'
@@ -48,7 +46,7 @@ const OverlayLogin = (props) => {
         {
           type: 'h1',
         },
-        'Ackee',
+        'Shirube',
       ),
       h(
         Text,
@@ -85,21 +83,6 @@ const OverlayLogin = (props) => {
     h(
       'div',
       { className: 'card__footer' },
-
-      h(
-        'a',
-        {
-          className: 'card__button link',
-          href: homepage,
-          target: '_blank',
-          rel: 'noopener',
-        },
-        'Help',
-      ),
-
-      h('div', {
-        className: 'card__separator',
-      }),
 
       h(
         'button',

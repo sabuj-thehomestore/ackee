@@ -6,6 +6,8 @@
 }
 
 .modal-backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   background: var(--modal-backdrop);
 }
 
